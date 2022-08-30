@@ -1,0 +1,6 @@
+POST https://localhost8080/practice/post_data/
+Content-Type: application/json
+
+{
+    "input":"이정우"
+}
