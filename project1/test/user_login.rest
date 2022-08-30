@@ -1,6 +1,6 @@
-POST https://localhost8080/practice/post_data/
+POST http://localhost:8000/practice/post_data
 Content-Type: application/json
 
 {
-    "input":"이정우"
+    "input":["이정우"]
 }
