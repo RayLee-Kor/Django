@@ -1,0 +1,15 @@
+version: "3.8"
+
+volumes:
+  mysql_data:
+  elasticsearch_volume:
+
+services:
+  mysqldb:
+    build: ./db
+    env_file:
+      - "./db/db.env"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
