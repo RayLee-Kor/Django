@@ -1,6 +1,7 @@
-POST http://localhost:8000/practice/post_data
+POST http://localhost:8000/practice/signup/
 Content-Type: application/json
 
 {
-    "input":["asd"]
+    "id": "1234",
+    "pw":"hello"
 }
