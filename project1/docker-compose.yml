@@ -13,3 +13,15 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+
+  project1:
+    build: ./project1
+    command: >
+      bash -c "python setup_es.py &&
+               python manage.py makemigrations &&
+               python manage.py migrate &&
+               python manage.py runserver 0.0.0.0:8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - project1:/app
