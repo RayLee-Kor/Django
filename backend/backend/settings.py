@@ -1,26 +1,15 @@
 from pathlib import Path
+
 import environ
-import os
-import pymysql
-
-pymysql.install_as_MySQLdb()
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-env = environ.Env(DEBUG=(bool,True))
-environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR,'.env')
-)
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0hkg((-ovp=@dkgk7(ax4&h9^k(32&rsvjp8#+z0gq6hx+79q6'
+SECRET_KEY = 'django-insecure-#4n)b(vps*8=99v6jk0g-t=udm=oi+b04hn_-g4z*57zw6@^y('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,18 +20,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # plugins
-    'rest_framework',
-    'corsheaders',
-    # local_apps
-    'practice_1'
 ]
 
 MIDDLEWARE = [
@@ -53,13 +36,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000', 'http://localhost:3000']
-CORS_ALLOW_CREDENTIALS = True
-
-ROOT_URLCONF = 'project1.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
@@ -77,14 +56,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project1.wsgi.application'
+WSGI_APPLICATION = 'backend.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db()
+    'default': env.db(),
 }
 
 

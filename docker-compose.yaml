@@ -2,7 +2,6 @@ version: "3.8"
 
 volumes:
   mysql_data:
-  elasticsearch_volume:
 
 services:
   mysqldb:
@@ -14,8 +13,8 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  project1:
-    build: ./project1
+  backend:
+    build: ./backend
     command: >
       bash -c "python setup_es.py &&
                python manage.py makemigrations &&
@@ -24,4 +23,4 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - project1:/app
+      - ./backend:/app
